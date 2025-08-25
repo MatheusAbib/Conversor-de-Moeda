@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conversor de Moedas</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Conversor de Moedas</h1>
+  </div>
+
+  <div class="container">
+    <div class="conversion-panel">
+      <div class="row">
+        <div class="input-group">
+          <label>Valor</label>
+          <input type="number" id="amount" value="100" min="0">
+        </div>
+        <div class="input-group">
+          <label>De</label>
+          <select id="base"></select>
+        </div>
+        <div class="input-group">
+          <button id="swap">⇅ Trocar</button>
+        </div>
+        <div class="input-group">
+          <label>Para</label>
+          <select id="target"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-panel">
+      <div class="card">
+        <div class="card-title">Cotação atual</div>
+        <div class="card-value" id="rateCard">–</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Atualização</div>
+        <div class="card-value" id="updateCard">–</div>
+      </div>
+      <div class="card" id="resultCard">
+        <div class="card-title">Resultado</div>
+        <div class="card-value">–</div>
+      </div>
+    </div>
+
+    <div class="conversion-panel">
+      <div class="row controls-row">
+        <button id="refresh">Atualizar agora</button>
+        <div class="checkbox-container">
+          <input type="checkbox" id="autoRefresh" checked />
+          <label for="autoRefresh">
+            Atualização automática
+            <span class="info-icon">
+              <i class="fas fa-info-circle"></i>
+              <div class="tooltip">
+                Quando ativado, o conversor atualiza as taxas de câmbio automaticamente no intervalo selecionado.
+              </div>
+            </span>
+          </label>
+        </div>
+        <div class="interval-container">
+          <select id="interval">
+            <option value="5000">5 segundos</option>
+            <option value="15000" selected>15 segundos</option>
+            <option value="30000">30 segundos</option>
+            <option value="60000">1 minuto</option>
+          </select>
+          <span class="info-icon">
+            <i class="fas fa-info-circle"></i>
+            <div class="tooltip">
+              Define o intervalo de tempo entre as atualizações automáticas das taxas de câmbio.
+            </div>
+          </span>
+        </div>
+      </div>
+
+      <div id="error" class="error"></div>
+    </div>
+
+    <div class="explanation-panel">
+      <div class="explanation-title">
+        <i class="fas fa-lightbulb"></i>
+        <span>Quando usar a atualização automática?</span>
+      </div>
+      <div class="explanation-content">
+        <p>A atualização automática é útil quando você precisa monitorar flutuações nas taxas de câmbio em tempo real. Veja alguns cenários comuns:</p>
+        <ul class="scenario-list">
+          <li><span class="highlight">Mercado financeiro</span> - Para traders que precisam acompanhar as variações cambiais rapidamente</li>
+          <li><span class="highlight">Compras internacionais</span> - Quando você está esperando o momento ideal para fazer uma conversão</li>
+          <li><span class="highlight">Viagens</span> - Para acompanhar as taxas de câmbio enquanto planeja seu orçamento</li>
+          <li><span class="highlight">Negócios internacionais</span> - Para empresas que precisam monitorar exposição cambial</li>
+        </ul>
+        <p>Quando desativada, você precisa clicar em "Atualizar agora" para obter a cotação mais recente.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
